@@ -51,12 +51,13 @@
             console.log(fullName.value);
             console.log(email.value);
             console.log(password1.value);
+            console.log("Password Length", password1.value.length);
             console.log(password2.value);
 
-            if(password1.value === password2.value){
+            if(password1.value === password2.value && password1.value !== "" && password2.value !== "" && fullName.value !== "" && email !== ""){
                 console.log("Passwords matched");
                 // let errorText = error.innerHTML="Passwords Matched"
-                // alert(errorText)
+                // alert(errorText) testing321
                 // error.style.color = "green"
                 hr.style.display = "none"
                 mainDiv.style.display="none"
@@ -65,9 +66,22 @@
                 emailText.innerHTML = `Email: ${email.value}`
                 logout.innerHTML = "Logout"
 
-            } else {
-                console.log("Passwords does not match");
-                error.innerHTML="Passwords does not match"
+            } else if (fullName.value === "" || email.value === "" || password1.value === "" || password2.value === ""){
+                error.innerHTML = "All field are required*"
+                error.style.color = "red"
+            }
+            
+            else if(password1.value === "" && password2.value === ""){
+                error.innerHTML = "Password fields cannot be empty"
+                error.style.color = "red"
+
+            } else if (password1 !== password2){
+                error.innerHTML = "Passwords does not match"
+            } 
+            
+            else {
+                console.log("Something Went Wrong, Try agan");
+                error.innerHTML="Something Went Wrong, Try again..."
                 // let errorText = error.innerHTML="Passwords does not match"
                 // alert(errorText)
                 password1.value = ""
@@ -76,6 +90,8 @@
 
             }
 
+            
+           
             
         // const input = prompt("Enter your name")
         // console.log("you name is ", input);
