@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <h3 class="text-center mt-4">Hello there, welcome to my js class come</h3>
+    
+    <div id="main-div">
+        <div class="container">
+            <input type="text" required class="form-control" id="full_name" placeholder="Full Name"> <br>
+            <input type="email"required  class="form-control" id="email" placeholder="Email"> <br>
+            <input type="password" required class="form-control" id="p1" placeholder="Password"> <br>
+            <input type="password" required class="form-control" id="p2" placeholder="Confirm Password"> <br>
+            <input type="button" class="form-control btn btn-success" id="create" value="Create account">
+        </div>
+    </div>
+    <h3 class="text-center" id="h2" style="background-color: yellow;"></h3>
+    <h4 class="text-center" id="full_name_text"></h4>
+    <h4 class="text-center" id="email_text"></h4>
+    <a href="/my_app/js.html" id="logout"></a>
+    <hr id="hr">
+    <strong id="error"></strong>
+    <script>
+
+        // Getting all the elements and assigning to vb
+        let fullName = document.getElementById("full_name")
+        let email = document.getElementById("email")
+        let password1 = document.getElementById("p1")
+        let password2 = document.getElementById("p2")
+
+        let fullNameText = document.getElementById("full_name_text")
+        let emailText = document.getElementById("email_text")
+        let logout = document.getElementById("logout")
+        let h2 = document.getElementById("h2")
+
+        let mainDiv = document.getElementById("main-div")
+        let error = document.getElementById("error")
+        let button = document.getElementById("create")
+        let hr = document.getElementById("hr")
+
+
+
+        button.addEventListener("click", function () {
+            // Getting the text the user entered in the input field using .value
+            console.log(fullName.value);
+            console.log(email.value);
+            console.log(password1.value);
+            console.log(password2.value);
+
+            if(password1.value === password2.value){
+                console.log("Passwords matched");
+                // let errorText = error.innerHTML="Passwords Matched"
+                // alert(errorText)
+                // error.style.color = "green"
+                hr.style.display = "none"
+                mainDiv.style.display="none"
+                h2.innerHTML = `Hello ${full_name.value}, Your account was created successfully :)`
+                fullNameText.innerHTML = `Name: ${fullName.value}`
+                emailText.innerHTML = `Email: ${email.value}`
+                logout.innerHTML = "Logout"
+
+            } else {
+                console.log("Passwords does not match");
+                error.innerHTML="Passwords does not match"
+                // let errorText = error.innerHTML="Passwords does not match"
+                // alert(errorText)
+                password1.value = ""
+                password2.value = ""
+                error.style.color = "red"
+
+            }
+
+            
+        // const input = prompt("Enter your name")
+        // console.log("you name is ", input);
+
+
+            // console.log("Button is now clicked");
+            // alert("Button is now clicked")
+            // if(password1 === password2) {
+            //     console.log("Passwords matched, creating account...");
+            // } else{
+            //     console.log("Incorrect passwords");
+            // }
+        })
+
+        // let password1 = "testing321"
+        // let password2 = "testing321"
+
+        // console.log(password1);
+
+        // if(password1 === password2){ 
+        //     // === means that you are trying to 
+        //     //compare if password 1 and password 
+        //     //2 are the same
+        //     console.log("Password matched");
+        // } 
+        
+        // else {
+        //     console.log("Passwords does not match!!")
+        // }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"> </script>
+
+</body>
+</html>
